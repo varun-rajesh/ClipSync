@@ -39,8 +39,8 @@ def on_press(key):
             if win32clipboard.IsClipboardFormatAvailable(win32clipboard.CF_TEXT):
                 win32clipboard.OpenClipboard()
                 data = win32clipboard.GetClipboardData()
-                db.child("Clipboard").set(data)
-                db.child("Last_Used").set("Text")
+                db.child("clipboard").set(data)
+                db.child("last_used").set("text")
                 win32clipboard.CloseClipboard()
 
                 toaster.show_toast("ClipSync", "Uploaded: " + data,
@@ -52,8 +52,8 @@ def on_press(key):
                     img = ImageGrab.grabclipboard();
                     img_bytes = io.BytesIO()
                     img.save(img_bytes, format='PNG')
-                    storage.child("Image").put(img_bytes.getvalue())
-                    db.child("Last_Used").set("Image")
+                    storage.child("image").put(img_bytes.getvalue())
+                    db.child("last_used").set("image")
 
                     toaster.show_toast("ClipSync", "Uploaded Image",
                                        icon_path="ClipSync.ico",
@@ -71,8 +71,8 @@ def on_press(key):
         current.add(key)
         if all(k in current for k in COMBINATION_DOWNLOAD_L) ^ all(k in current for k in COMBINATION_DOWNLOAD_R):
 
-            if db.child("Last_Used").get().val() == "Text":
-                data = db.child("Clipboard").get().val()
+            if db.child("last_used").get().val() == "text":
+                data = db.child("clipboard").get().val()
                 win32clipboard.OpenClipboard()
                 win32clipboard.EmptyClipboard()
                 win32clipboard.SetClipboardText(data)
@@ -82,8 +82,8 @@ def on_press(key):
                                    threaded=True)
                 while toaster.notification_active(): time.sleep(0.1)
 
-            elif db.child("Last_Used").get().val() == "Image":
-                storage.child("Image").download("temp_image")
+            elif db.child("last_used").get().val() == "image":
+                storage.child("image").download("temp_image")
                 image = Image.open("temp_image")
                 output = io.BytesIO()
                 image.convert("RGB").save(output, "BMP")
