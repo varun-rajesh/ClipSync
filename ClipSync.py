@@ -28,7 +28,6 @@ storage = firebase.storage()
 toaster = ToastNotifier()
 toaster.show_toast("ClipSync", "ClipSync started",
                   icon_path="ClipSync.ico", duration=5, threaded=True)
-while toaster.notification_active(): time.sleep(0.1)
 
 
 def on_press(key):
@@ -46,7 +45,6 @@ def on_press(key):
                 toaster.show_toast("ClipSync", "Uploaded: " + data,
                                    icon_path="ClipSync.ico", duration=5,
                                    threaded=True)
-                while toaster.notification_active(): time.sleep(0.1)
             else:
                 try:
                     img = ImageGrab.grabclipboard();
@@ -58,13 +56,11 @@ def on_press(key):
                     toaster.show_toast("ClipSync", "Uploaded Image",
                                        icon_path="ClipSync.ico",
                                        duration=5, threaded=True)
-                    while toaster.notification_active(): time.sleep(0.1)
                 except:
                     print("Unsupported file type")
                     toaster.show_toast("ClipSync", "Unsupported File Type",
                                        icon_path="ClipSync.ico",
                                        duration=5, threaded=True)
-                    while toaster.notification_active(): time.sleep(0.1)
 
 
     elif key in COMBINATION_DOWNLOAD_L or key in COMBINATION_DOWNLOAD_R:
@@ -80,7 +76,6 @@ def on_press(key):
                 toaster.show_toast("ClipSync", "Copied: " + data,
                                    icon_path="ClipSync.ico", duration=5,
                                    threaded=True)
-                while toaster.notification_active(): time.sleep(0.1)
 
             elif db.child("last_used").get().val() == "image":
                 storage.child("image").download("temp_image")
@@ -97,7 +92,6 @@ def on_press(key):
                 toaster.show_toast("ClipSync", "Copied Image",
                                    icon_path="ClipSync.ico", duration=5,
                                    threaded=True)
-                while toaster.notification_active(): time.sleep(0.1)
 
 
     elif key in COMBINATION_QUIT:
