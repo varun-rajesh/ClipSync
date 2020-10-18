@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "748228670676",
+    "firebase_url": "https://clipsync-31845.firebaseio.com",
+    "project_id": "clipsync-31845",
+    "storage_bucket": "clipsync-31845.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748228670676:android:6ebded3dc30b10e1f2f741",
+        "android_client_info": {
+          "package_name": "com.varunrajesh.clipsync"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748228670676-nkkrvml5nbvs11vtdouatntvukghhngo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.varunrajesh.clipsync",
+            "certificate_hash": "ccfeff4997dbcaad2ad3c625079a20177f04e29c"
+          }
+        },
+        {
+          "client_id": "748228670676-fgocqr7thpceb9o17gvr47psvlprubmh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlLq_3XVENc0MzUa4iHQdOW3YPnSXoaHw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748228670676-fgocqr7thpceb9o17gvr47psvlprubmh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
